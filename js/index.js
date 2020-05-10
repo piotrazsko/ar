@@ -6,7 +6,11 @@ window.onload = () => {
     const coordinates = document.querySelector(".coordinates");
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
-    coordinates.textContent = `lat:${latitude}, long:${longitude}`;
+    const delta = document.querySelector("#delta").value;
+
+    coordinates.textContent = `lat:${latitude + delta}, long:${
+      longitude + delta
+    }`;
     let places = staticLoadPlaces();
     renderPlaces(places, latitude, longitude);
     function staticLoadPlaces() {
