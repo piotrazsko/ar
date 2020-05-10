@@ -58,12 +58,19 @@ var models = [
 
 var modelIndex = 0;
 var setModel = function (model, entity) {
+  const scale = document.querySelector("#scale").value;
+  const scale = `${scale} ${scale} ${scale}`;
+
+  const rotation = `${document.querySelector("rotation").value} ${
+    document.querySelector("rotation2").value
+  } ${document.querySelector("rotation3").value}`;
+
   if (model.scale) {
-    entity.setAttribute("scale", model.scale);
+    entity.setAttribute("scale", scale);
   }
 
   if (model.rotation) {
-    entity.setAttribute("rotation", model.rotation);
+    entity.setAttribute("rotation", rotation);
   }
 
   if (model.position) {
