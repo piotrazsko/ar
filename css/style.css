@@ -42,12 +42,14 @@ button {
 }
 .inputs {
   position: fixed;
-  right: 150px;
+  right: 0px;
   bottom: 15px;
+
   display: flex;
   flex-direction: column;
 }
 input {
+  max-width: 100px;
   color: #000;
   font-size: 15px;
 }
