@@ -65,9 +65,9 @@ var setModel = function (model, entity) {
   const scale = document.querySelector("#scale").value;
   const scaleData = `${scale} ${scale} ${scale}`;
 
-  const rotation = `${document.querySelector("rotation").value} ${
-    document.querySelector("rotation2").value
-  } ${document.querySelector("rotation3").value}`;
+  const rotation = `${document.querySelector("#rotation").value} ${
+    document.querySelector("#rotation2").value
+  } ${document.querySelector("#rotation3").value}`;
 
   if (model.scale) {
     entity.setAttribute("scale", scaleData);
