@@ -44,6 +44,8 @@ button {
   position: fixed;
   right: 150px;
   bottom: 15px;
+  display: flex;
+  flex-direction: column;
 }
 input {
   color: #fff;
