@@ -40,6 +40,11 @@ button {
   bottom: 20px;
   left: 15px;
 }
+.inputs {
+  position: fixed;
+  right: 150px;
+  bottom: 15px;
+}
 input {
   color: #fff;
   font-size: 15px;
