@@ -1,12 +1,14 @@
 window.onload = () => {
   const button = document.querySelector('button[data-action="change"]');
   button.innerText = "﹖";
-  navigator.geolocation.getCurrentPosition(success, error);
+  navigator.geolocation.getCurrentPosition(success);
   function success(position) {
+    const coordinates = document.querySelector('.coordinates')
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
+    coordinates.textContent = `lat:${latitude}, long:${longitude}`
     let places = staticLoadPlaces();
-    renderPlaces(places);
+    renderPlaces(places,latitude,longitude);
     function staticLoadPlaces() {
       return [
         {
@@ -23,19 +25,19 @@ window.onload = () => {
 
 var models = [
   {
-    url: "./assets/magnemite/scene.gltf",
+    url: "./magnemite/scene.gltf",
     scale: "0.5 0.5 0.5",
     info: "Magnemite, Lv. 5, HP 10/10",
     rotation: "0 180 0",
   },
   {
-    url: "./assets/articuno/scene.gltf",
+    url: "./articuno/scene.gltf",
     scale: "0.2 0.2 0.2",
     rotation: "0 180 0",
     info: "Articuno, Lv. 80, HP 100/100",
   },
   {
-    url: "./assets/dragonite/scene.gltf",
+    url: "./dragonite/scene.gltf",
     scale: "0.08 0.08 0.08",
     rotation: "0 180 0",
     info: "Dragonite, Lv. 99, HP 150/150",
@@ -62,13 +64,9 @@ var setModel = function (model, entity) {
   div.innerText = model.info;
 };
 
-function renderPlaces(places) {
+function renderPlaces(places,latitude,longitude) {
   let scene = document.querySelector("a-scene");
-
   places.forEach((place) => {
-    let latitude = place.location.lat;
-    let longitude = place.location.lng;
-
     let model = document.createElement("a-entity");
     model.setAttribute(
       "gps-entity-place",
@@ -86,6 +84,7 @@ function renderPlaces(places) {
         modelIndex++;
         var newIndex = modelIndex % models.length;
         setModel(models[newIndex], entity);
+      console.log('index',newIndex)
       });
 
     scene.appendChild(model);
