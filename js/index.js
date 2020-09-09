@@ -28,6 +28,12 @@ window.onload = () => {
 };
 
 var models = [
+{
+    url: "./data/flag.gltf",
+    scale: "0.5 0.5 0.5",
+    info: "flag, Lv. 5, HP 10/10",
+    rotation: "0 0 0",
+  },
   {
     url: "./skeleton/scene.gltf",
     scale: "0.5 0.5 0.5",
