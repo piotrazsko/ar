@@ -3,6 +3,7 @@ window.onload = () => {
   button.innerText = "﹖";
   navigator.geolocation.getCurrentPosition(success);
   function success(position) {
+    console.log(position)
     const coordinates = document.querySelector(".coordinates");
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
@@ -11,9 +12,11 @@ window.onload = () => {
     coordinates.textContent = `lat:${latitude + delta}, long:${
       longitude + delta
     }`;
-    let places = staticLoadPlaces();
-    renderPlaces(places, latitude, longitude);
-    function staticLoadPlaces() {
+
+    let places = staticLoadPlaces(53.859370, 27.686572);
+    renderPlaces(places,53.859370, 27.686572);
+    function staticLoadPlaces(latitude
+      ,longitude) {
       return [
         {
           name: "Gift",
@@ -34,36 +37,14 @@ var models = [
     info: "flag, Lv. 5, HP 10/10",
     rotation: "0 0 0",
   },
-  {
-    url: "./skeleton/scene.gltf",
-    scale: "0.5 0.5 0.5",
-    info: "Head, Lv. 5, HP 10/10",
-    rotation: "0 180 0",
-  },
+  
   {
     url: "./magnemite/scene.gltf",
     scale: "0.5 0.5 0.5",
     info: "Magnemite, Lv. 5, HP 10/10",
     rotation: "0 180 0",
   },
-  {
-    url: "./girl/scene.gltf",
-    scale: "0.5 0.5 0.5",
-    info: "Girl, Lv. 5, HP 10/10",
-    rotation: "0 180 0",
-  },
-  {
-    url: "./articuno/scene.gltf",
-    scale: "0.2 0.2 0.2",
-    rotation: "0 180 0",
-    info: "Articuno, Lv. 80, HP 100/100",
-  },
-  {
-    url: "./dragonite/scene.gltf",
-    scale: "0.08 0.08 0.08",
-    rotation: "0 180 0",
-    info: "Dragonite, Lv. 99, HP 150/150",
-  },
+  
 ];
 
 var modelIndex = 0;
