@@ -13,8 +13,8 @@ window.onload = () => {
       longitude + delta
     }`;
 
-    let places = staticLoadPlaces(53.859370, 27.686572);
-    renderPlaces(places,53.859370, 27.686572);
+    let places = staticLoadPlaces(53.851442, 27.491996);
+    renderPlaces(places, 53.851442, 27.491996);
     function staticLoadPlaces(latitude
       ,longitude) {
       return [
