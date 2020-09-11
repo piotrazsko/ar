@@ -12,9 +12,9 @@ window.onload = () => {
     coordinates.textContent = `lat:${latitude + delta}, long:${
       longitude + delta
     }`;
-
-    let places = staticLoadPlaces(53.851442, 27.491996);
-    renderPlaces(places, 53.851442, 27.491996);
+    // 53.851930, 27.491437
+    let places = staticLoadPlaces(53.851930, 27.491437);
+    renderPlaces(places, 53.851930, 27.491437);
     function staticLoadPlaces(latitude
       ,longitude) {
       return [
@@ -33,7 +33,7 @@ window.onload = () => {
 var models = [
 {
     url: "./data/flag.gltf",
-    scale: "0.5 0.5 0.5",
+    scale: "2 2 2",
     info: "flag, Lv. 5, HP 10/10",
     rotation: "0 0 0",
   },
